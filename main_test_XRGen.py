@@ -13,7 +13,7 @@ def parse_agrs():
     parser = argparse.ArgumentParser()
 
     # Data input settings
-    parser.add_argument('--image_dir', type=str, default='data/images/', help='the path to the directory containing the image.')
+    parser.add_argument('--image_dir', type=str, default='/kaggle/input/iu-xray/iu_xray/images', help='the path to the directory containing the image.')
     parser.add_argument('--ann_path', type=str, default='data/annotation.json', help='the path to the directory containing the report.')
 
     # Data loader settings
@@ -31,7 +31,7 @@ def parse_agrs():
     parser.add_argument('--visual_extractor_pretrained', type=bool, default=True, help='whether to load the pretrained visual extractor')
 
     # Model settings (for medclip pretrained)
-    parser.add_argument('--clip_pretrained_path', type=str, default='models/medclip-pretrained/pytorch_model.bin', help='whether to load the pretrained visual extractor')
+    parser.add_argument('--clip_pretrained_path', type=str, default='/kaggle/input/medclip-pretrained.zip/pytorch/default/1/pytorch_model.bin', help='whether to load the pretrained visual extractor')
     parser.add_argument('--fix_text_encoder', type=bool, default=True, help='if True, fix text encoder. Otherwise, fine-tune text encoder')
     # Model settings (for contras loss)
     parser.add_argument('--contras_loss_w', type=float, default=1.0, help='the weights of contrastive loss., >0 means using kd loss; <=0 means no kd loss')    
@@ -65,12 +65,12 @@ def parse_agrs():
     # Trainer settings
     parser.add_argument('--n_gpu', type=int, default=1, help='the number of gpus to be used.')
     parser.add_argument('--epochs', type=int, default=100, help='the number of training epochs.')
-    parser.add_argument('--save_dir', type=str, default='results/XRGen_', help='the patch to save the models.')
+    parser.add_argument('--save_dir', type=str, default='results/XRGen', help='the patch to save the models.')
 
     # Others
     parser.add_argument('--seed', type=int, default=9233, help='.')
     parser.add_argument('--resume', type=str, help='whether to resume the training from existing checkpoints.')
-    parser.add_argument('--load', type=str, default='results/XRGen_/model_best.pth', help='whether to load a pre-trained model.')
+    parser.add_argument('--load', type=str, default='/kaggle/input/x-rgen_iu-xray/pytorch/default/1/model_best.pth', help='whether to load a pre-trained model.')
     parser.add_argument('--split', type=str, default='test', help='whether to load a pre-trained model.')
 
     args = parser.parse_args()
