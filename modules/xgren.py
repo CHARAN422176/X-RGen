@@ -146,6 +146,7 @@ class XGRenModel(nn.Module):
         vis_feats_1, fc_feats_1, contras_im1 = self.visual_extractor(images[:, 1])
         fc_feats = torch.cat((fc_feats_0, fc_feats_1), dim=1)
         vis_feats = torch.cat((vis_feats_0, vis_feats_1), dim=1)
+        att_feats = vis_feats  # default assignment
 
         if self.args.contras_loss_w > 0:
             contras_im = torch.cat((contras_im0, contras_im1), dim=1)
@@ -159,7 +160,7 @@ class XGRenModel(nn.Module):
             topics_embeds = self.topic_head(topics_embeds)
             
             # directly concat
-        att_feats = torch.cat((vis_feats, topics_embeds), dim=1)
+            att_feats = torch.cat((vis_feats, topics_embeds), dim=1)
 
         if mode == 'train':
             output = self.encoder_decoder(att_feats, targets, mode='forward')
