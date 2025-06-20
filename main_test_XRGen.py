@@ -14,7 +14,7 @@ def parse_agrs():
 
     # Data input settings
     parser.add_argument('--image_dir', type=str, default='/kaggle/input/iu-xray/iu_xray/images', help='the path to the directory containing the image.')
-    parser.add_argument('--ann_path', type=str, default='data/annotation.json', help='the path to the directory containing the report.')
+    parser.add_argument('--ann_path', type=str, default='/kaggle/working/X-RGen/data/annotation.json', help='the path to the directory containing the report.')
 
     # Data loader settings
     parser.add_argument('--use_topic', type=bool, default=True, help='whether use topic.')
