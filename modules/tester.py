@@ -56,7 +56,8 @@ class BaseTester(object):
         load_path = str(load_path)
         self.logger.info("Loading checkpoint: {} ...".format(load_path))
         checkpoint = torch.load(load_path)
-        self.model.load_state_dict(checkpoint['state_dict'])
+        # self.model.load_state_dict(checkpoint['state_dict'])
+        self.model.load_state_dict(checkpoint['state_dict'], strict=False)
 
 
 class Tester(BaseTester):
