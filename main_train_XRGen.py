@@ -16,6 +16,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 def parse_agrs():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--dataset_name', type=str, required=True, help='Name of the dataset')
 
     # Data input settings
     parser.add_argument('--image_dir', type=str, default='/kaggle/input/iu-xray/iu_xray/images', help='the path to the directory containing the data.')
