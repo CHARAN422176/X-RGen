@@ -159,7 +159,7 @@ class XGRenModel(nn.Module):
             topics_embeds = self.topic_head(topics_embeds)
             
             # directly concat
-            att_feats = torch.cat((vis_feats, topics_embeds), dim=1)
+        att_feats = torch.cat((vis_feats, topics_embeds), dim=1)
 
         if mode == 'train':
             output = self.encoder_decoder(att_feats, targets, mode='forward')
