@@ -22,7 +22,7 @@ def parse_agrs():
     parser.add_argument('--ann_path', type=str, default='/kaggle/working/X-RGen/data/annotation.json', help='the path to the directory containing the data.')
 
     # Data loader settings
-    parser.add_argument('--use_topic', type=bool, default=False, help='whether use topic.')
+    parser.add_argument('--use_topic', type=bool, default=True, help='whether use topic.')
     parser.add_argument('--topic_type', type=list, default=['iu', 'knee', 'axr', 'shoulder', 'hip', 'wrist'], choices=['iu', 'knee', 'axr', 'shoulder', 'hip', 'wrist'], help='body parts to be used.')
 
     parser.add_argument('--max_seq_length', type=int, default=60, help='the maximum sequence length of the reports for decoding.')
