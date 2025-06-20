@@ -100,6 +100,8 @@ def parse_agrs():
 def main():
     # parse arguments
     args = parse_agrs()
+    os.environ["WANDB_MODE"] = "disabled"
+
     wandb.init(project='X-RGen', name=args.save_dir.split('/')[1])
 
     # fix random seeds
