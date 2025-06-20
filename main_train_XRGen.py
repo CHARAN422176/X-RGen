@@ -18,11 +18,11 @@ def parse_agrs():
     parser = argparse.ArgumentParser()
 
     # Data input settings
-    parser.add_argument('--image_dir', type=str, default='data/images/', help='the path to the directory containing the data.')
-    parser.add_argument('--ann_path', type=str, default='data/annotation.json', help='the path to the directory containing the data.')
+    parser.add_argument('--image_dir', type=str, default='/kaggle/input/iu-xray/iu_xray/images', help='the path to the directory containing the data.')
+    parser.add_argument('--ann_path', type=str, default='/kaggle/working/X-RGen/data/annotation.json', help='the path to the directory containing the data.')
 
     # Data loader settings
-    parser.add_argument('--use_topic', type=bool, default=True, help='whether use topic.')
+    parser.add_argument('--use_topic', type=bool, default=False, help='whether use topic.')
     parser.add_argument('--topic_type', type=list, default=['iu', 'knee', 'axr', 'shoulder', 'hip', 'wrist'], choices=['iu', 'knee', 'axr', 'shoulder', 'hip', 'wrist'], help='body parts to be used.')
 
     parser.add_argument('--max_seq_length', type=int, default=60, help='the maximum sequence length of the reports for decoding.')
@@ -36,7 +36,7 @@ def parse_agrs():
     parser.add_argument('--visual_extractor_pretrained', type=bool, default=True, help='whether to load the pretrained visual extractor')
 
     # Model settings (for medclip pretrained)
-    parser.add_argument('--clip_pretrained_path', type=str, default='models/medclip-pretrained/pytorch_model.bin', help='whether to load the pretrained visual extractor')
+    parser.add_argument('--clip_pretrained_path', type=str, default='/kaggle/input/medclip-pretrained.zip/pytorch/default/1/pytorch_model.bin', help='whether to load the pretrained visual extractor')
     parser.add_argument('--fix_text_encoder', type=bool, default=True, help='if True, fix text encoder. Otherwise, fine-tune text encoder')
     # Model settings (for contras loss)
     parser.add_argument('--contras_loss_w', type=float, default=1.0, help='the weights of contrastive loss., >0 means using kd loss; <=0 means no kd loss')    
@@ -91,7 +91,7 @@ def parse_agrs():
 
     # Others
     parser.add_argument('--seed', type=int, default=123, help='.')
-    parser.add_argument('--resume', type=str, default=None, help='whether to resume the training from existing checkpoints.')
+    parser.add_argument('--resume', type=str, default="/kaggle/input/x-rgen_iu-xray/pytorch/default/1/model_best.pth", help='whether to resume the training from existing checkpoints.')
 
     args = parser.parse_args()
     return args
