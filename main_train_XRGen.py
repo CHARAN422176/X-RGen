@@ -92,7 +92,7 @@ def parse_agrs():
 
     # Others
     parser.add_argument('--seed', type=int, default=123, help='.')
-    parser.add_argument('--resume', type=str, default='/kaggle/input/x-rgen_iu-xray/pytorch/default/2/model_best (2).pth', help='whether to resume the training from existing checkpoints.')
+    parser.add_argument('--resume', type=str, default='/kaggle/input/x-rgen_iu-xray/pytorch/default/3/current_checkpoint.pth', help='whether to resume the training from existing checkpoints.')
 
     args = parser.parse_args()
     return args
